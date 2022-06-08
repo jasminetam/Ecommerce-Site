@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@types/redux-react-session": "^2.6.0"
+    "@types/redux-react-session": "^2.6.0",
+    "@types/styled-components": "^5.1.25"
   }
 }
