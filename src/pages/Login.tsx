@@ -1,9 +1,9 @@
 import {
-  StyledTextInput,
+  // StyledTextInput,
   StyledFormArea,
   StyledFormButton,
-  StyledLabel,
-  Avatar,
+  // StyledLabel,
+  // Avatar,
   StyledTitle,
   colors,
   ButtonGroup,
@@ -12,15 +12,19 @@ import {
   CopyrightText,
 } from "../App.styles";
 //formik
-import { Formik, Form, FormikProps } from "formik";
+import {
+  Formik,
+  Form,
+  // FormikProps
+} from "formik";
 import { TextInput } from "../FormLib/FormLib";
 import { MdEmail, MdPassword } from "react-icons/md";
 import * as Yup from "yup";
 //Loader
 import { ThreeDots } from "react-loader-spinner";
 //Auth and Redux
-import { connect } from "react-redux";
-import { loginUser } from "../auth/actions/userActions";
+// import { connect } from "react-redux";
+// import { loginUser } from "../auth/actions/userActions";
 
 const Login = (): JSX.Element => {
   return (
@@ -72,7 +76,7 @@ const Login = (): JSX.Element => {
                     <StyledFormButton type="submit">Login</StyledFormButton>
                   )}
                   {isSubmitting && (
-                      /* @ts-ignore */
+                    /* @ts-ignore */
                     <ThreeDots color={colors.theme} height={49} width={100} />
                   )}
                 </ButtonGroup>

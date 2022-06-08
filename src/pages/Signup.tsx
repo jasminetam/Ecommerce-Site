@@ -1,9 +1,9 @@
 import {
-  StyledTextInput,
+  // StyledTextInput,
   StyledFormArea,
   StyledFormButton,
-  StyledLabel,
-  Avatar,
+  // StyledLabel,
+  // Avatar,
   StyledTitle,
   colors,
   ButtonGroup,
@@ -12,10 +12,14 @@ import {
   CopyrightText,
 } from "../App.styles";
 //formik
-import { Formik, Form, FormikProps } from "formik";
+import {
+  Formik,
+  Form,
+  // FormikProps
+} from "formik";
 import { TextInput } from "../FormLib/FormLib";
 import Header from "../Header/Header";
-import { MdEmail, MdPassword} from "react-icons/md";
+import { MdEmail, MdPassword } from "react-icons/md";
 import { BiUserCircle, BiCalendar } from "react-icons/bi";
 import * as Yup from "yup";
 //Loader
