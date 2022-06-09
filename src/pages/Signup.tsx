@@ -24,8 +24,14 @@ import { BiUserCircle, BiCalendar } from "react-icons/bi";
 import * as Yup from "yup";
 //Loader
 import { ThreeDots } from "react-loader-spinner";
+//Auth and Redux
+import { connect } from "react-redux";
+import { signupUser } from "../auth/actions/userActions";
+import {useNavigate} from "react-router-dom";
 
-const Signup = (): JSX.Element => {
+
+const Signup = ({ signupUser }: any): JSX.Element => {
+  const history = useNavigate();
   return (
     <div>
       <StyledFormArea>
@@ -40,8 +46,8 @@ const Signup = (): JSX.Element => {
               dateOfBirth: "",
               name: "",
             }}
-            onSubmit={(values, { setSubmitting }) => {
-              console.log(values);
+            onSubmit={(values, { setSubmitting, setFieldError }) => {
+              signupUser(values, history, setFieldError, setSubmitting)
             }}
             validationSchema={Yup.object({
               email: Yup.string()
@@ -119,4 +125,4 @@ const Signup = (): JSX.Element => {
   );
 };
 
-export default Signup;
+export default connect(null, { signupUser })(Signup);
