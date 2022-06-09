@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useQuery } from "react-query";
+// import { useState } from "react";
+// import { useQuery } from "react-query";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 //Components
 import Header from "./Header/Header";
 import Login from "./pages/Login";
@@ -21,20 +21,20 @@ const App = () => {
   //render
   return (
     <Provider store={store}>
-    <Router>
-      <Header />
-      {/* @ts-ignore */}
-      <StyledContainer>
-        <Routes>
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-        </Routes>
-      </StyledContainer>
+      <Router>
+        <Header />
+        {/* @ts-ignore */}
+        <StyledContainer>
+          <Routes>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+          </Routes>
+        </StyledContainer>
       </Router>
-      </Provider>
+    </Provider>
   );
 };
 
