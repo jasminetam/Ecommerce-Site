@@ -14,7 +14,7 @@ const Header = () => {
           <div>
             <h1>
               <Link to="/" className="Logo">
-                Clothing Shop
+                Department Store
               </Link>
             </h1>
           </div>

@@ -12,21 +12,19 @@ import {
   CopyrightText,
 } from "../App.styles";
 //formik
-import {
-  Formik,
-  Form,
-  // FormikProps
-} from "formik";
+import { Formik, Form } from "formik";
 import { TextInput } from "../FormLib/FormLib";
 import { MdEmail, MdPassword } from "react-icons/md";
 import * as Yup from "yup";
 //Loader
 import { ThreeDots } from "react-loader-spinner";
 //Auth and Redux
-// import { connect } from "react-redux";
-// import { loginUser } from "../auth/actions/userActions";
+import { connect } from "react-redux";
+import { loginUser } from "../auth/actions/userActions";
+import { useNavigate } from "react-router-dom";
 
 const Login = (): JSX.Element => {
+  const history = useNavigate();
   return (
     <div>
       <StyledFormArea>
@@ -38,9 +36,6 @@ const Login = (): JSX.Element => {
               email: "",
               password: "",
             }}
-            onSubmit={(values, { setSubmitting }) => {
-              console.log(values);
-            }}
             validationSchema={Yup.object({
               email: Yup.string()
                 .email("Invalid email address")
@@ -50,6 +45,9 @@ const Login = (): JSX.Element => {
                 .max(30, "Password is too long")
                 .required("Required"),
             })}
+            onSubmit={(values, { setSubmitting, setFieldError }) => {
+              loginUser(values, history, setFieldError, setSubmitting);
+            }}
           >
             {({ isSubmitting }) => (
               <Form>
@@ -94,4 +92,4 @@ const Login = (): JSX.Element => {
   );
 };
 
-export default Login;
+export default connect(null, { loginUser })(Login);

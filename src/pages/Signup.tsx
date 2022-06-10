@@ -24,8 +24,13 @@ import { BiUserCircle, BiCalendar } from "react-icons/bi";
 import * as Yup from "yup";
 //Loader
 import { ThreeDots } from "react-loader-spinner";
+//Auth and Redux
+import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { signupUser } from "../auth/actions/userActions";
 
 const Signup = (): JSX.Element => {
+  const history = useNavigate();
   return (
     <div>
       <StyledFormArea>
@@ -36,12 +41,12 @@ const Signup = (): JSX.Element => {
             initialValues={{
               email: "",
               password: "",
-              repectPaaword: "",
+              repeatPassword: "",
               dateOfBirth: "",
               name: "",
             }}
-            onSubmit={(values, { setSubmitting }) => {
-              console.log(values);
+            onSubmit={(values, { setSubmitting, setFieldError }) => {
+              signupUser(values, history, setFieldError, setSubmitting);
             }}
             validationSchema={Yup.object({
               email: Yup.string()
@@ -53,7 +58,7 @@ const Signup = (): JSX.Element => {
                 .required("Required"),
               name: Yup.string().required("Required"),
               dateOfBirth: Yup.date().required("Required"),
-              repeactPassword: Yup.string()
+              repeatPassword: Yup.string()
                 .required("Required")
                 .oneOf([Yup.ref("password")], "Passwords must match"),
             })}
@@ -119,4 +124,4 @@ const Signup = (): JSX.Element => {
   );
 };
 
-export default Signup;
+export default connect(null, { signupUser })(Signup);
