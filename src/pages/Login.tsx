@@ -12,10 +12,7 @@ import {
   CopyrightText,
 } from "../App.styles";
 //formik
-import {
-  Formik,
-  Form,
-} from "formik";
+import { Formik, Form } from "formik";
 import { TextInput } from "../FormLib/FormLib";
 import { MdEmail, MdPassword } from "react-icons/md";
 import * as Yup from "yup";
@@ -24,9 +21,9 @@ import { ThreeDots } from "react-loader-spinner";
 //Auth and Redux
 import { connect } from "react-redux";
 import { loginUser } from "../auth/actions/userActions";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({loginUser}: any ): JSX.Element => {
+const Login = (): JSX.Element => {
   const history = useNavigate();
   return (
     <div>
@@ -49,8 +46,7 @@ const Login = ({loginUser}: any ): JSX.Element => {
                 .required("Required"),
             })}
             onSubmit={(values, { setSubmitting, setFieldError }) => {
-              console.log(values);
-              loginUser(values, history, setFieldError, setSubmitting)
+              loginUser(values, history, setFieldError, setSubmitting);
             }}
           >
             {({ isSubmitting }) => (
@@ -96,4 +92,4 @@ const Login = ({loginUser}: any ): JSX.Element => {
   );
 };
 
-export default connect(null, {loginUser})(Login);
+export default connect(null, { loginUser })(Login);

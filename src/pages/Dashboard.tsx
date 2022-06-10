@@ -7,6 +7,9 @@ import {
   colors,
 } from "../App.styles";
 
+//auth & redux
+import { connect } from "react-redux"
+import { logoutUser } from "../auth/actions/userActions";
 const Dashboard = () => {
   return (
     <div>

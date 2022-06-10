@@ -26,11 +26,10 @@ import * as Yup from "yup";
 import { ThreeDots } from "react-loader-spinner";
 //Auth and Redux
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { signupUser } from "../auth/actions/userActions";
-import {useNavigate} from "react-router-dom";
 
-
-const Signup = ({ signupUser }: any): JSX.Element => {
+const Signup = (): JSX.Element => {
   const history = useNavigate();
   return (
     <div>
@@ -42,12 +41,12 @@ const Signup = ({ signupUser }: any): JSX.Element => {
             initialValues={{
               email: "",
               password: "",
-              repectPaaword: "",
+              repeatPassword: "",
               dateOfBirth: "",
               name: "",
             }}
             onSubmit={(values, { setSubmitting, setFieldError }) => {
-              signupUser(values, history, setFieldError, setSubmitting)
+              signupUser(values, history, setFieldError, setSubmitting);
             }}
             validationSchema={Yup.object({
               email: Yup.string()
@@ -59,7 +58,7 @@ const Signup = ({ signupUser }: any): JSX.Element => {
                 .required("Required"),
               name: Yup.string().required("Required"),
               dateOfBirth: Yup.date().required("Required"),
-              repeactPassword: Yup.string()
+              repeatPassword: Yup.string()
                 .required("Required")
                 .oneOf([Yup.ref("password")], "Passwords must match"),
             })}
