@@ -34,6 +34,7 @@ const Products = (): JSX.Element => {
     getProducts
   );
 
+
   const getTotalItems = (items: CartItemType[]) =>
     items.reduce((ack: number, items) => ack + items.amount, 0);
 
