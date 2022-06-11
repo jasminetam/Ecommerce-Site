@@ -192,10 +192,11 @@ export const StyledLabel = styled.p`
   text-align: center;
   font-size: 15px;
   font-weight: bold;
+  color: white;
 `;
 
 export const StyledFormArea = styled.div`
-  background-color: ${colors.light1};
+  background-color: ${colors.dark2};
   text-align: center;
   height: 100%;
   display: flex;
@@ -236,7 +237,7 @@ export const ErrorMsg = styled.div`
 
 export const ExtraText = styled.p`
   text-align: center;
-  color: ${(props) => (props.color ? props.color : colors.dark2)};
+  color: white;
   padding: 2px;
   margin-top: 10px;
 `;

@@ -2,7 +2,7 @@ import {
   StyledTitle,
   // StyledSubTitle,
   ButtonGroup,
-  StyledButton,
+  StyledFormButton,
   StyledFormArea,
   colors,
 } from "../App.styles";
@@ -10,7 +10,12 @@ import {
 //auth & redux
 import { connect } from "react-redux"
 import { logoutUser } from "../auth/actions/userActions";
-const Dashboard = () => {
+
+//react router
+import { useNavigate } from "react-router-dom";
+
+const Dashboard = ({ logoutUser }: any) => {
+  const history = useNavigate()
   return (
     <div>
       <div
@@ -29,11 +34,11 @@ const Dashboard = () => {
       <StyledFormArea bg={colors.dark2}>
         <StyledTitle>Welcome, User</StyledTitle>
         <ButtonGroup>
-          <StyledButton to="#">Logout</StyledButton>
+          <StyledFormButton onClick={()=> logoutUser(history)}>Logout</StyledFormButton>
         </ButtonGroup>
       </StyledFormArea>
     </div>
   );
 };
 
-export default Dashboard;
+export default connect(null, { logoutUser })(Dashboard);

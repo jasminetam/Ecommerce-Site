@@ -13,29 +13,30 @@ import Products from "./pages/Products";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 //Styles
 import { StyledContainer } from "./App.styles";
-//Auth
-import { Provider } from "react-redux";
-import store from "./auth/store";
 
-const App = () => {
+
+/* @ts-ignore */
+const App = ()=> {
   //render
   return (
-    <Provider store={store}>
-      <Router>
+    
+    <Router>
+      <div>
         <Header />
-        {/* @ts-ignore */}
-        <StyledContainer>
-          <Routes>
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-          </Routes>
-        </StyledContainer>
+        </div>
+      {/* @ts-ignore */}
+          <StyledContainer>
+            <Routes>
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+            </Routes>
+          </StyledContainer>
       </Router>
-    </Provider>
   );
 };
+
 
 export default App;

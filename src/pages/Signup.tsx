@@ -18,7 +18,6 @@ import {
   // FormikProps
 } from "formik";
 import { TextInput } from "../FormLib/FormLib";
-import Header from "../Header/Header";
 import { MdEmail, MdPassword } from "react-icons/md";
 import { BiUserCircle, BiCalendar } from "react-icons/bi";
 import * as Yup from "yup";
@@ -29,7 +28,7 @@ import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signupUser } from "../auth/actions/userActions";
 
-const Signup = (): JSX.Element => {
+const Signup = ({ signupUser }: any): JSX.Element => {
   const history = useNavigate();
   return (
     <div>
@@ -39,29 +38,30 @@ const Signup = (): JSX.Element => {
           {/* @ts-ignore */}
           <Formik
             initialValues={{
+              name: "",
               email: "",
               password: "",
               repeatPassword: "",
               dateOfBirth: "",
-              name: "",
-            }}
-            onSubmit={(values, { setSubmitting, setFieldError }) => {
-              signupUser(values, history, setFieldError, setSubmitting);
             }}
             validationSchema={Yup.object({
               email: Yup.string()
-                .email("Invalid email address")
-                .required("Required"),
+              .email("Invalid email address")
+              .required("Required"),
               password: Yup.string()
-                .min(8, "Password is too short")
-                .max(30, "Password is too long")
-                .required("Required"),
+              .min(8, "Password is too short")
+              .max(30, "Password is too long")
+              .required("Required"),
               name: Yup.string().required("Required"),
               dateOfBirth: Yup.date().required("Required"),
               repeatPassword: Yup.string()
-                .required("Required")
-                .oneOf([Yup.ref("password")], "Passwords must match"),
+              .required("Required")
+              .oneOf([Yup.ref("password")], "Passwords must match"),
             })}
+            onSubmit={(values, { setSubmitting, setFieldError }) => {
+              console.log(values)
+              signupUser(values, history, setFieldError, setSubmitting);
+            }}
           >
             {({ isSubmitting }) => (
               <Form>
