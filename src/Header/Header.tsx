@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 //Components
 
 //Styles
 import { HeaderWrapper } from "../App.styles";
 
-
-
 const Header = () => {
   //render
   return (
+
       <HeaderWrapper>
         <div className="headerDiv">
           <div>
@@ -37,6 +37,7 @@ const Header = () => {
           </div>
         </div>
       </HeaderWrapper>
+  
   );
 };
 

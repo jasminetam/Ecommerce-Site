@@ -1,6 +1,6 @@
 import axios from "axios"
 import { sessionService } from "redux-react-session"
-import { useDispatch } from "react-redux";
+import { Dispatch } from "redux";
 
 
 
@@ -37,6 +37,7 @@ export const loginUser = (
   
             sessionService
               .saveSession(token)
+              
               .then(() => {
                 sessionService
                   .saveUser(userData)
@@ -53,42 +54,42 @@ export const loginUser = (
       // complete Submission
       setSubmitting(false);
     };
-  };
- {/* @ts-ignore */}
-export const signupUser = (credentials, history, setFieldError, setSubmitting) => {
- {/* @ts-ignore */}
-    return (dispatch) => {
-        
-        axios.post("https://sleepy-cove-34296.herokuapp.com/user/signup",
-        credentials,
-        {
-            headers: {
-                "Content-Type": "application/json"
-            }
-            }
-        ).then((response) => {
-            const { data } = response
-            
-            if (data.status === "FAILED") {
-                const { message } = data
-                //check for specific error
-                if (message.includes("name")) {
-                    setFieldError("name", message)
-                } else if (message.includes("email")) {
-                    setFieldError("email", message)
-                } else if (message.includes("date")) {
-                    setFieldError("dateOfBirth", message)
-                } else if (message.includes("password")) {
-                    setFieldError("password", message)
-                }
-                // complete submission
-                setSubmitting(false)
+};
+   {/* @ts-ignore */}
 
-            } else if (data.status === "SUCCESS") {
-                const {email, password} = credentials
-                 {/* @ts-ignore */}
+export const signupUser = (credentials, history, setFieldError, setSubmitting) => {
+
+    return (dispatch: Dispatch) => {
+      
+      axios.post("https://sleepy-cove-34296.herokuapp.com/user/signup",
+      credentials,
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+      ).then((response) => {
+        const { data } = response
+        
+        if (data.status === "FAILED") {
+          const { message } = data
+          //check for specific error
+          if (message.includes("name")) {
+            setFieldError("name", message)
+          } else if (message.includes("email")) {
+            setFieldError("email", message)
+          } else if (message.includes("date")) {
+            setFieldError("dateOfBirth", message)
+          } else if (message.includes("password")) {
+            setFieldError("password", message)
+          }
+          // complete submission
+          setSubmitting(false)
+          
+        } else if (data.status === "SUCCESS") {
+          const { email, password } = credentials
+           {/* @ts-ignore */}
                 dispatch(loginUser({email, password}, history, setFieldError, setSubmitting))
-    
             }
 
         }).catch(err => console.error(err))
@@ -96,6 +97,10 @@ export const signupUser = (credentials, history, setFieldError, setSubmitting) =
     }
 }
 
-export const logoutUser = () => {
-
+export const logoutUser = (history: any) => {
+  return () => {
+    sessionService.deleteSession();
+    sessionService.deleteUser()
+    history("/")
+  }
 }

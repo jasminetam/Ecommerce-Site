@@ -23,7 +23,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../auth/actions/userActions";
 import { useNavigate } from "react-router-dom";
 
-const Login = (): JSX.Element => {
+const Login = ({ loginUser }: any): JSX.Element => {
   const history = useNavigate();
   return (
     <div>
