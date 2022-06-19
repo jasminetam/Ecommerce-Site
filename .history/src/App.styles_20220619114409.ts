@@ -19,9 +19,9 @@ export const Wrapper = styled.div`
 
 export const HeaderWrapper = styled.div`
   .headerDiv {
-    position: absolute;
-    height: 80px;
-    width: 100vw;
+    position: sticky;
+    min-height: 80px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,6 +55,13 @@ export const HeaderWrapper = styled.div`
     text-transform: uppercase;
     color: white;
     padding: 0px 15px;
+  }
+
+  body {
+    margin: 0;
+  }
+  html {
+    width: 100;
   }
 
   .header-links ul li a:hover {
@@ -122,8 +129,8 @@ export const StyledButton = styled(Link)`
 `;
 //Sttyled components
 export const StyledContainer = styled.div`
-  width: 100vw;
-  height: 96vh;
+  margin: 0;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,10 +138,7 @@ export const StyledContainer = styled.div`
     url(${background});
   background-size: cover;
   background-attachment: fixed;
-  .homeDiv {
-    width: 100%;
-    height: 100%;
-  }
+  overflow: hidden;
 `;
 //Home
 export const StyledTitle = styled.h2`

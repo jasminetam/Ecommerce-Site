@@ -21,7 +21,7 @@ const App = ()=> {
   return (
     
     <Router>
-      <div className="homeDiv">
+      <div className="">
       <div>
         <Header />
         </div>
