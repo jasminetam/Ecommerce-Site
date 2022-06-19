@@ -20,8 +20,8 @@ export const Wrapper = styled.div`
 export const HeaderWrapper = styled.div`
   .headerDiv {
     position: absolute;
-    height: 80px;
-    width: 100vw;
+    min-height: 80px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -122,8 +122,9 @@ export const StyledButton = styled(Link)`
 `;
 //Sttyled components
 export const StyledContainer = styled.div`
+  
+  min-height: 90vh;
   width: 100vw;
-  height: 96vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,10 +132,7 @@ export const StyledContainer = styled.div`
     url(${background});
   background-size: cover;
   background-attachment: fixed;
-  .homeDiv {
-    width: 100%;
-    height: 100%;
-  }
+  
 `;
 //Home
 export const StyledTitle = styled.h2`

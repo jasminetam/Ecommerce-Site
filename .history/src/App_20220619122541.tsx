@@ -21,7 +21,7 @@ const App = ()=> {
   return (
     
     <Router>
-      <div className="homeDiv">
+      <div></div>
       <div>
         <Header />
         </div>
@@ -34,10 +34,8 @@ const App = ()=> {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
             </Routes>
-        </StyledContainer>
-        </div>
-    </Router>
-    
+          </StyledContainer>
+      </Router>
   );
 };
 

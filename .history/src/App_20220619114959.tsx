@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import
 //LoaderCss
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 //Styles
@@ -21,7 +22,6 @@ const App = ()=> {
   return (
     
     <Router>
-      <div className="homeDiv">
       <div>
         <Header />
         </div>
@@ -34,10 +34,8 @@ const App = ()=> {
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
             </Routes>
-        </StyledContainer>
-        </div>
-    </Router>
-    
+          </StyledContainer>
+      </Router>
   );
 };
 

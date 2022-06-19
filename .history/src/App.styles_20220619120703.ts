@@ -13,15 +13,26 @@ export const colors = {
   red: "#DC2626",
 };
 
+export const BackgroundDiv = styled.div`
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+
+#root { 
+  margin: 0;
+  padding: 0;}
+`
+
 export const Wrapper = styled.div`
   margin: 40px;
 `;
 
 export const HeaderWrapper = styled.div`
   .headerDiv {
-    position: absolute;
-    height: 80px;
-    width: 100vw;
+    position: sticky;
+    min-height: 80px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,6 +67,7 @@ export const HeaderWrapper = styled.div`
     color: white;
     padding: 0px 15px;
   }
+
 
   .header-links ul li a:hover {
     color: #c5979d;
@@ -122,8 +134,8 @@ export const StyledButton = styled(Link)`
 `;
 //Sttyled components
 export const StyledContainer = styled.div`
-  width: 100vw;
-  height: 96vh;
+  margin: 0;
+  min-height: 93vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,10 +143,7 @@ export const StyledContainer = styled.div`
     url(${background});
   background-size: cover;
   background-attachment: fixed;
-  .homeDiv {
-    width: 100%;
-    height: 100%;
-  }
+  overflow: hidden;
 `;
 //Home
 export const StyledTitle = styled.h2`

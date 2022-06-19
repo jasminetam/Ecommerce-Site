@@ -13,18 +13,20 @@ import Products from "./pages/Products";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 //Styles
 import { StyledContainer } from "./App.styles";
+import { BackgroundDiv } from "./App.styles";
 
 
 /* @ts-ignore */
 const App = ()=> {
   //render
   return (
-    
+   
     <Router>
-      <div className="homeDiv">
+      
       <div>
         <Header />
-        </div>
+      </div>
+      <BackgroundDiv>
       {/* @ts-ignore */}
           <StyledContainer>
             <Routes>
@@ -35,9 +37,9 @@ const App = ()=> {
               <Route path="/products" element={<Products />} />
             </Routes>
         </StyledContainer>
-        </div>
-    </Router>
-    
+       
+      </Router>
+      </BackgroundDiv>
   );
 };
 

@@ -20,8 +20,8 @@ export const Wrapper = styled.div`
 export const HeaderWrapper = styled.div`
   .headerDiv {
     position: absolute;
-    height: 80px;
-    width: 100vw;
+    min-height: 80px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -21,7 +21,7 @@ export const HeaderWrapper = styled.div`
   .headerDiv {
     position: absolute;
     height: 80px;
-    width: 100vw;
+    width: 90;
     display: flex;
     justify-content: space-between;
     align-items: center;
